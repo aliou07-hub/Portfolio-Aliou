@@ -1,37 +1,36 @@
-# Aliou Garga Aboubikr — Portfolio
+# Aliou Garga Aboubikr | Portfolio
 
-Personal portfolio of Aliou Garga Aboubikr — Finance & Administrative Assistant and Customer Relations professional, also skilled in web development and founder of [CvatsPro.com](https://www.cvatspro.com/).
+Portfolio of Aliou Garga Aboubikr, Accounting and Finance professional (open to remote roles, US and Europe), and founder of [CvatsPro.com](https://www.cvatspro.com/).
 
-## About this site
+## What is inside
 
-Single-file, static HTML/CSS/JS website (no build step, no dependencies). Everything — images, certificates, logos — is embedded directly in `index.html` as base64 data, so the site works by simply opening the file, and deploys as-is to any static host.
+Static site, no build step. `index.html` holds all the code and images. `Aboubikr_Aliou_Resume_CV.pdf` is the file behind the Download CV buttons.
 
-**Features:**
-- Bilingual — English / Français (language switch in the top navigation, saved in the visitor's browser)
-- Sections: Home, About, Professional Experience, Core Competencies, Education, Web & Digital Skills (Services, Web Projects, Entrepreneurship, CvatsPro.com), Certifications, Gallery, Contact
-- Fully responsive (mobile / tablet / desktop) with a mobile menu
-- 3D-styled interactions: mouse-reactive hero photo, tilt-on-hover cards, animated multi-color bubbles, flip animations on certificate cards
+- Animated 3D ID badge intro (Three.js), plays once per browser session, with a Skip button and a 2D fallback for old phones, low-end devices and reduced motion
+- Language choice at the start: French or English (saved in the visitor's browser)
+- Who are you? screen: client path or recruiter path (choice saved), with a Switch profile link in the header
+- Client path: services, websites built, case study, WhatsApp and email buttons
+- Recruiter path: skills, experience timeline, availability, Download CV and email buttons
+- Small dancing robot on every page: tap it to chat. It suggests questions about Aliou and answers them (French and English)
+- Times New Roman typography, 3D floating shapes and scroll-driven motion
+- Full portfolio: opens from the See everything else button at the bottom of each path
 
-## Running locally
+Libraries (Three.js, GSAP, Lenis) load from a CDN only when needed. The site still works without them.
 
-No build tools needed. Either:
-- Open `index.html` directly in a browser, or
-- Serve it locally:
-  ```bash
-  python -m http.server 8080
-  ```
-  then visit `http://localhost:8080`
+## Run locally
 
-## Deploying
+```bash
+python -m http.server 8080
+```
+Then open http://localhost:8080
 
-This is a single static file, so it deploys to any static host with zero configuration:
+## Deploy
 
-- **GitHub Pages:** push this repo, then enable Pages (Settings → Pages → Deploy from branch → `main` / root). The site will be live at `https://<username>.github.io/<repo-name>/`.
-- **Vercel / Netlify:** import the repo and deploy with no build command — output is `index.html` at the root.
+- GitHub Pages: push the repo, then Settings, Pages, Deploy from branch, `main` / root.
+- Vercel or Netlify: import the repo, no build command, output is the root folder.
 
 ## Contact
 
 - Email: aliougargaaboubikr@gmail.com
-- Phone: +237 698 828 298
+- Phone and WhatsApp: +237 698 828 298
 - Location: Douala, Cameroon
-- Product: [CvatsPro.com](https://www.cvatspro.com/)

@@ -857,6 +857,68 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
 .share-btn:hover{background:rgba(255,255,255,.2);transform:translateY(-2px)}
 .share-btn:active{transform:scale(.96)}
 
+/* websites grid: 3 then 2 on desktop, one by one on phone */
+.site-grid{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.pv-mosad{background:radial-gradient(circle at 70% 30%,rgba(224,118,31,.28),transparent 60%),#07080b;display:grid;place-items:center;text-align:center;color:#fff}
+.pv-mosad b{font-family:'Arial Black',system-ui,sans-serif;font-size:1.7rem;letter-spacing:.02em}
+.pv-mosad b em{font-style:normal;color:#E0761F}
+.pv-mosad small{display:block;margin-top:8px;color:rgba(255,255,255,.78);font-size:.82rem}
+
+/* every budget banner */
+.budget{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:center;padding:clamp(20px,4vw,32px);border-radius:var(--r-xl);margin-top:22px;border:1px solid rgba(255,160,90,.5)!important;background:linear-gradient(135deg,rgba(255,122,26,.26),rgba(24,16,10,.66) 58%)!important}
+.budget .ico-b{margin:0;width:56px;height:56px}
+.budget .tag{margin-bottom:6px}
+.bd-h{font-size:clamp(1.35rem,3.4vw,1.8rem);font-weight:700;line-height:1.2;margin-bottom:8px;text-shadow:0 2px 14px rgba(0,0,0,.5)}
+.bd-d{color:rgba(250,246,241,.92);line-height:1.7;max-width:62ch}
+.budget .chips{margin-top:14px}
+.budget .btn{white-space:nowrap}
+@media(max-width:760px){.budget{grid-template-columns:1fr;gap:14px}.budget .btn{width:100%}}
+
+/* bottom menu on every page (scrollable on phones) */
+body.view-client .pillnav,body.view-recruiter .pillnav,body.view-full .pillnav{transform:translateX(-50%);opacity:1;pointer-events:auto}
+.pillnav{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;max-width:calc(100vw - 16px)}
+.pillnav::-webkit-scrollbar{display:none}
+.pillnav a{flex:0 0 auto}
+@media(max-width:600px){.pillnav a{padding:0 13px}.pillnav a span{display:inline}}
+body.view-client .robot,body.view-recruiter .robot,body.view-full .robot{bottom:84px}
+.qbar{display:none!important}
+
+/* smaller robot */
+.robot{width:48px;height:69px}
+@media(max-width:520px){.robot{width:40px;height:58px;right:8px}}
+
+/* quote form */
+.qform{border-radius:var(--r-xl);padding:clamp(18px,4vw,34px);display:grid;gap:26px}
+.qform fieldset{border:0;display:grid;gap:14px;min-width:0}
+.qform legend{font-weight:700;font-size:1.1rem;margin-bottom:10px;color:#FFB37A}
+.qform legend b,.qf-f label b{color:#FF8A3D}
+.qf-row{display:grid;grid-template-columns:1fr;gap:14px}
+@media(min-width:760px){.qf-row{grid-template-columns:1fr 1fr}}
+.qf-f{display:grid;gap:7px;min-width:0}
+.qf-f label,.qf-lbl{font-weight:700;font-size:.98rem}
+.qf-f label i,.qf-lbl i{font-style:normal;font-weight:400;color:var(--muted);font-size:.88rem}
+.qform input[type=text],.qform input[type=tel],.qform input[type=email],.qform select,.qform textarea{width:100%;min-height:52px;padding:12px 14px;border-radius:14px;border:1px solid rgba(255,255,255,.26);background:rgba(0,0,0,.38);color:#fff;font:inherit;font-size:16px;line-height:1.45;transition:border-color .2s,box-shadow .2s}
+.qform textarea{min-height:112px;resize:vertical}
+.qform ::placeholder{color:rgba(255,255,255,.45)}
+.qform select{appearance:none;-webkit-appearance:none;padding-right:42px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FFB37A' stroke-width='2'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;background-size:18px}
+.qform select option{color:#111;background:#fff}
+.qform input:focus,.qform select:focus,.qform textarea:focus{outline:none;border-color:#FF8A3D;box-shadow:0 0 0 3px rgba(255,122,26,.32)}
+.qform [aria-invalid=true]{border-color:#ff7b7b!important;box-shadow:0 0 0 3px rgba(255,90,90,.22)}
+.qf-err{color:#ffb8b8;font-size:.88rem;min-height:1.1em}
+.qf-choices{display:flex;flex-wrap:wrap;gap:10px}
+.qf-ch{position:relative;display:inline-flex}
+.qf-ch input{position:absolute;inset:0;opacity:0;margin:0;cursor:pointer;width:100%;height:100%}
+.qf-ch span{display:inline-flex;align-items:center;min-height:46px;padding:0 16px;border-radius:100px;border:1px solid rgba(255,255,255,.28);background:rgba(255,255,255,.08);font-weight:600;font-size:.94rem;transition:background .2s,color .2s,transform .2s var(--ease)}
+.qf-ch input:checked+span{background:var(--ice);color:#111;border-color:transparent}
+.qf-ch input[type=checkbox]:checked+span::before{content:'\2713';margin-right:8px;font-weight:700}
+.qf-ch input:focus-visible+span{outline:2px solid #FFB37A;outline-offset:2px}
+.qf-ch:active span{transform:scale(.96)}
+.qf-actions{display:flex;flex-wrap:wrap;gap:12px}
+@media(max-width:560px){.qf-actions .btn{width:100%}}
+.qf-note{color:var(--muted);font-size:.88rem;line-height:1.6}
+.qf-ok{color:#9ff0c4;font-weight:700;line-height:1.6}
+.qf-ok:empty{display:none}
+
 </style>
 </head>
 <body>
@@ -987,7 +1049,7 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
         <h1 class="h1" data-i18n="cl.h1">CVs, websites and portfolios that win you interviews and clients.</h1>
         <div class="cta-row">
           <a class="btn btn-primary btn-big" data-wa href="https://wa.me/237698828298" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="b.wa">Chat on WhatsApp</span></a>
-          <a class="btn btn-ghost btn-big" data-mail href="mailto:aliougargaaboubikr@gmail.com"><svg class="ic"><use href="#i-mail"/></svg><span data-i18n="b.msg">Send a message</span></a>
+          <a class="btn btn-ghost btn-big" href="#c-quote" data-goquote><svg class="ic"><use href="#i-doc"/></svg><span data-i18n="qf.cta">Request a quote</span></a>
         </div>
       </div>
       <div class="tiles" data-tiles aria-hidden="true">
@@ -1051,6 +1113,16 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
     <a class="btn btn-primary" data-wa data-wa-k="free" href="https://wa.me/237698828298" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="sv.4.b"></span></a>
   </article>
 </div>
+      <article class="budget glass rv">
+  <div class="ico-b"><svg class="ic"><use href="#i-shop"/></svg></div>
+  <div>
+    <p class="tag" data-i18n="bd.tag">For every budget</p>
+    <h3 class="bd-h" data-i18n="bd.h">Small business, big presence</h3>
+    <p class="bd-d" data-i18n="bd.d">Small sellers, freelancers, students, small shops: I work with everyone, not only big companies. My prices are very affordable and adapted to small budgets, and we agree on the price before we start.</p>
+    <div class="chips"><span class="chip" data-i18n="bd.c1">Small sellers</span><span class="chip" data-i18n="bd.c2">Freelancers</span><span class="chip" data-i18n="bd.c3">Small shops</span><span class="chip" data-i18n="bd.c4">Students</span></div>
+  </div>
+  <a class="btn btn-primary" data-wa data-wa-k="budget" href="https://wa.me/237698828298" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="bd.b">Ask for a price</span></a>
+</article>
     </div>
   </section>
 
@@ -1077,7 +1149,14 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
         <h2 class="h2" data-i18n="cl.w.h2">Websites I built</h2>
         <p class="lead" data-i18n="cl.w.sub">Real sites, live today.</p>
       </div>
-      <div class="grid g4">
+      <div class="grid site-grid">
+  <article class="card tilt rv site">
+    <div class="pv" aria-hidden="true"><div class="pv-bar"><i></i><i></i><i></i></div><div class="pv-img pv-mosad"><div><b>MOSAD<em>STORE</em></b><small data-i18n="st.5.k">iPhone · Samsung · Accessories</small></div></div></div>
+    <div class="site-top"><span class="site-mark">Mosad Store</span><span class="chip" data-i18n="st.cat.s">Shop</span></div>
+    <p class="site-res" data-i18n="st.5.r">A phone shop with a full catalogue and ordering through WhatsApp.</p>
+    <a class="stretch" href="https://mosad-store.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Mosad Store"></a>
+    <a class="btn btn-primary" href="https://mosad-store.vercel.app/" target="_blank" rel="noopener noreferrer"><span data-i18n="st.view">Visit the site</span><svg class="ic"><use href="#i-ext"/></svg></a>
+  </article>
   <article class="card tilt rv site">
     <div class="pv" aria-hidden="true"><div class="pv-bar"><i></i><i></i><i></i></div><div class="pv-img bgcov imgS1"></div></div>
     <div class="site-top"><span class="site-mark">L'Hybride</span><span class="chip" data-i18n="st.cat.r">Restaurant</span></div>
@@ -1161,6 +1240,48 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
     </div>
   </div>
 </article></div>
+  </section>
+
+  <section class="sec jsec" id="c-quote">
+    <div class="container">
+      <div class="sec-h rv">
+        <p class="tag" data-i18n="qf.tag">Free quote</p>
+        <h2 class="h2" data-i18n="qf.h2">Tell me about your project</h2>
+        <p class="lead" data-i18n="qf.sub">Fill in this short form.</p>
+      </div>
+      <form class="qform glass rv" id="qform" novalidate>
+        <fieldset>
+          <legend data-i18n="qf.l.you">About you</legend>
+          <div class="qf-row">
+            <div class="qf-f"><label for="qf-name"><span data-i18n="qf.name">Full name</span> <b aria-hidden="true">*</b></label><input id="qf-name" type="text" autocomplete="name" required aria-describedby="qf-name-e" data-i18n-ph="qf.name.ph"><small class="qf-err" id="qf-name-e" aria-live="polite"></small></div>
+            <div class="qf-f"><label for="qf-phone"><span data-i18n="qf.phone">Phone or WhatsApp</span> <b aria-hidden="true">*</b></label><input id="qf-phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="qf-phone-e" data-i18n-ph="qf.phone.ph"><small class="qf-err" id="qf-phone-e" aria-live="polite"></small></div>
+            <div class="qf-f"><label for="qf-email"><span data-i18n="qf.email">Email</span> <i data-i18n="qf.opt">(optional)</i></label><input id="qf-email" type="email" inputmode="email" autocomplete="email" aria-describedby="qf-email-e" data-i18n-ph="qf.email.ph"><small class="qf-err" id="qf-email-e" aria-live="polite"></small></div>
+            <div class="qf-f"><label for="qf-city"><span data-i18n="qf.city">City and country</span> <i data-i18n="qf.opt">(optional)</i></label><input id="qf-city" type="text" autocomplete="address-level2" data-i18n-ph="qf.city.ph"></div>
+          </div>
+        </fieldset>
+        <fieldset id="qf-type" aria-describedby="qf-type-e">
+          <legend><span data-i18n="qf.l.type">What do you need?</span> <b aria-hidden="true">*</b></legend>
+          <div class="qf-choices"><label class="qf-ch"><input type="radio" name="type" data-k="qf.t.cv"><span data-i18n="qf.t.cv"></span></label><label class="qf-ch"><input type="radio" name="type" data-k="qf.t.port"><span data-i18n="qf.t.port"></span></label><label class="qf-ch"><input type="radio" name="type" data-k="qf.t.site"><span data-i18n="qf.t.site"></span></label><label class="qf-ch"><input type="radio" name="type" data-k="qf.t.shop"><span data-i18n="qf.t.shop"></span></label><label class="qf-ch"><input type="radio" name="type" data-k="qf.t.resto"><span data-i18n="qf.t.resto"></span></label><label class="qf-ch"><input type="radio" name="type" data-k="qf.t.free"><span data-i18n="qf.t.free"></span></label><label class="qf-ch"><input type="radio" name="type" data-k="qf.t.other"><span data-i18n="qf.t.other"></span></label></div>
+          <small class="qf-err" id="qf-type-e" aria-live="polite"></small>
+        </fieldset>
+        <fieldset>
+          <legend data-i18n="qf.l.proj">Your project</legend>
+          <div class="qf-f"><label for="qf-act"><span data-i18n="qf.act">What do you do?</span> <b aria-hidden="true">*</b></label><textarea id="qf-act" rows="3" required aria-describedby="qf-act-e" data-i18n-ph="qf.act.ph"></textarea><small class="qf-err" id="qf-act-e" aria-live="polite"></small></div>
+          <div class="qf-f"><label for="qf-msg"><span data-i18n="qf.msg">What do you want me to create?</span> <b aria-hidden="true">*</b></label><textarea id="qf-msg" rows="5" required aria-describedby="qf-msg-e" data-i18n-ph="qf.msg.ph"></textarea><small class="qf-err" id="qf-msg-e" aria-live="polite"></small></div>
+          <div class="qf-row">
+            <div class="qf-f"><label for="qf-budget"><span data-i18n="qf.budget">Your budget</span> <i data-i18n="qf.opt">(optional)</i></label><select id="qf-budget"><option data-i18n="qf.b.0"></option><option data-i18n="qf.b.1"></option><option data-i18n="qf.b.2"></option><option data-i18n="qf.b.3"></option></select></div>
+            <div class="qf-f"><label for="qf-when"><span data-i18n="qf.when">When do you need it?</span> <i data-i18n="qf.opt">(optional)</i></label><select id="qf-when"><option data-i18n="qf.w.0"></option><option data-i18n="qf.w.1"></option><option data-i18n="qf.w.2"></option><option data-i18n="qf.w.3"></option></select></div>
+          </div>
+          <div class="qf-f"><span class="qf-lbl"><span data-i18n="qf.have">What you already have</span> <i data-i18n="qf.opt">(optional)</i></span><div class="qf-choices"><label class="qf-ch"><input type="checkbox" name="have" data-k="qf.h.logo"><span data-i18n="qf.h.logo"></span></label><label class="qf-ch"><input type="checkbox" name="have" data-k="qf.h.photos"><span data-i18n="qf.h.photos"></span></label><label class="qf-ch"><input type="checkbox" name="have" data-k="qf.h.texts"><span data-i18n="qf.h.texts"></span></label><label class="qf-ch"><input type="checkbox" name="have" data-k="qf.h.domain"><span data-i18n="qf.h.domain"></span></label></div></div>
+        </fieldset>
+        <div class="qf-actions">
+          <button type="submit" class="btn btn-primary btn-big" data-send="wa"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="qf.send.wa">Send on WhatsApp</span></button>
+          <button type="submit" class="btn btn-ghost btn-big" data-send="mail"><svg class="ic"><use href="#i-mail"/></svg><span data-i18n="qf.send.mail">Send by email</span></button>
+        </div>
+        <p class="qf-note" data-i18n="qf.note">Nothing is saved on this site.</p>
+        <p class="qf-ok" id="qf-ok" role="status" aria-live="polite"></p>
+      </form>
+    </div>
   </section>
 
   <section class="sec jsec" id="c-cta">
@@ -1702,6 +1823,16 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
     <a class="btn btn-primary" data-wa data-wa-k="free" href="https://wa.me/237698828298" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="sv.4.b"></span></a>
   </article>
 </div>
+      <article class="budget glass rv">
+  <div class="ico-b"><svg class="ic"><use href="#i-shop"/></svg></div>
+  <div>
+    <p class="tag" data-i18n="bd.tag">For every budget</p>
+    <h3 class="bd-h" data-i18n="bd.h">Small business, big presence</h3>
+    <p class="bd-d" data-i18n="bd.d">Small sellers, freelancers, students, small shops: I work with everyone, not only big companies. My prices are very affordable and adapted to small budgets, and we agree on the price before we start.</p>
+    <div class="chips"><span class="chip" data-i18n="bd.c1">Small sellers</span><span class="chip" data-i18n="bd.c2">Freelancers</span><span class="chip" data-i18n="bd.c3">Small shops</span><span class="chip" data-i18n="bd.c4">Students</span></div>
+  </div>
+  <a class="btn btn-primary" data-wa data-wa-k="budget" href="https://wa.me/237698828298" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="bd.b">Ask for a price</span></a>
+</article>
       <div class="sec-h rv" style="margin-top:56px">
         <p class="tag" data-i18n="hw.tag">How we work</p>
         <h2 class="h2" data-i18n="hw.h2">A simple process, with you at every step</h2>
@@ -1718,7 +1849,14 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
         <h2 class="h2" data-i18n="cl.w.h2">Websites I built</h2>
         <p class="lead" data-i18n="cl.w.sub">Real sites, live today.</p>
       </div>
-      <div class="grid g4">
+      <div class="grid site-grid">
+  <article class="card tilt rv site">
+    <div class="pv" aria-hidden="true"><div class="pv-bar"><i></i><i></i><i></i></div><div class="pv-img pv-mosad"><div><b>MOSAD<em>STORE</em></b><small data-i18n="st.5.k">iPhone · Samsung · Accessories</small></div></div></div>
+    <div class="site-top"><span class="site-mark">Mosad Store</span><span class="chip" data-i18n="st.cat.s">Shop</span></div>
+    <p class="site-res" data-i18n="st.5.r">A phone shop with a full catalogue and ordering through WhatsApp.</p>
+    <a class="stretch" href="https://mosad-store.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Mosad Store"></a>
+    <a class="btn btn-primary" href="https://mosad-store.vercel.app/" target="_blank" rel="noopener noreferrer"><span data-i18n="st.view">Visit the site</span><svg class="ic"><use href="#i-ext"/></svg></a>
+  </article>
   <article class="card tilt rv site">
     <div class="pv" aria-hidden="true"><div class="pv-bar"><i></i><i></i><i></i></div><div class="pv-img bgcov imgS1"></div></div>
     <div class="site-top"><span class="site-mark">L'Hybride</span><span class="chip" data-i18n="st.cat.r">Restaurant</span></div>
@@ -1902,14 +2040,7 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
 
 </main>
 
-<nav class="pillnav glass" id="pillnav" aria-label="Sections">
-    <a href="#f-home" class="active"><svg class="ic"><use href="#i-home"/></svg><span data-i18n="pn.home">Home</span></a>
-    <a href="#f-about"><svg class="ic"><use href="#i-doc"/></svg><span data-i18n="pn.sum">Summary</span></a>
-    <a href="#f-exp"><svg class="ic"><use href="#i-brief"/></svg><span data-i18n="pn.exp">Experience</span></a>
-    <a href="#f-skills"><svg class="ic"><use href="#i-spark"/></svg><span data-i18n="pn.sk">Skills</span></a>
-    <a href="#f-work"><svg class="ic"><use href="#i-grid"/></svg><span data-i18n="pn.work">Work</span></a>
-    <a href="#f-contact"><svg class="ic"><use href="#i-chat"/></svg><span data-i18n="pn.ct">Contact</span></a>
-  </nav>
+<nav class="pillnav glass" id="pillnav" aria-label="Sections"></nav>
 
 <button class="robot" id="robot" type="button" aria-label="Open quick info about Aliou" aria-expanded="false" aria-controls="rbPanel">
   <span class="rb-hint" id="rbHint"></span>
@@ -1948,11 +2079,7 @@ footer{display:flex;flex-direction:column;align-items:center;gap:16px}
   <div class="rb-sugs" id="rbSugs"></div>
 </aside>
 
-<div class="qbar" id="qbar">
-  <a class="btn btn-primary qb-c" data-wa href="https://wa.me/237698828298" target="_blank" rel="noopener noreferrer"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="b.wa">Chat on WhatsApp</span></a>
-  <a class="btn btn-primary qb-r" href="Aboubikr_Aliou_Resume_CV.pdf" download><svg class="ic"><use href="#i-down"/></svg><span data-i18n="b.cv">Download CV</span></a>
-  <a class="btn btn-ghost qb-r qb-ic" href="mailto:aliougargaaboubikr@gmail.com" aria-label="Email"><svg class="ic"><use href="#i-mail"/></svg></a>
-</div>
+
 
 <div id="lb" role="dialog" aria-label="Image"><button id="lbc" type="button" aria-label="Close">&times;</button><div id="lbi" class="lbimg"></div></div>
 
@@ -2264,6 +2391,80 @@ const I18N = {
 'rj.gal':{en:`Gallery`,fr:`Galerie`},
 'b.share':{en:`Share this portfolio`,fr:`Partager ce portfolio`},
 'b.copied':{en:`Link copied`,fr:`Lien copié`},
+'st.cat.s':{en:`Shop`,fr:`Boutique`},
+'st.5.k':{en:`iPhone · Samsung · Accessories`,fr:`iPhone · Samsung · Accessoires`},
+'st.5.r':{en:`A phone shop with a full catalogue and ordering through WhatsApp.`,fr:`Une boutique de téléphones avec un catalogue complet et la commande via WhatsApp.`},
+'bd.tag':{en:`For every budget`,fr:`Pour tous les budgets`},
+'bd.h':{en:`Small business, big presence`,fr:`Petit business, grande présence`},
+'bd.d':{en:`Small sellers, freelancers, students, small shops: I work with everyone, not only big companies. My prices are very affordable and adapted to small budgets, and we agree on the price before we start.`,fr:`Petits vendeurs, freelances, étudiants, petits commerces : je travaille avec tout le monde, pas seulement avec les grandes entreprises. Mes prix sont très abordables et adaptés aux petits budgets, et on fixe le prix ensemble avant de commencer.`},
+'bd.c1':{en:`Small sellers`,fr:`Petits vendeurs`},
+'bd.c2':{en:`Freelancers`,fr:`Freelances`},
+'bd.c3':{en:`Small shops`,fr:`Petits commerces`},
+'bd.c4':{en:`Students`,fr:`Étudiants`},
+'bd.b':{en:`Ask for a price`,fr:`Demander un prix`},
+'pn.serv':{en:`Services`,fr:`Services`},
+'pn.how':{en:`Process`,fr:`Méthode`},
+'pn.case':{en:`Case study`,fr:`Étude de cas`},
+'pn.room':{en:`Workspace`,fr:`Bureau`},
+'pn.cert':{en:`Certifications`,fr:`Certifications`},
+'pn.gal':{en:`Gallery`,fr:`Galerie`},
+'qf.tag':{en:`Free quote`,fr:`Devis gratuit`},
+'qf.h2':{en:`Tell me about your project`,fr:`Parlez-moi de votre projet`},
+'qf.sub':{en:`Fill in this short form. I study your request and tell you how much it will cost. Fields marked with * are required.`,fr:`Remplissez ce petit formulaire. J'étudie votre demande et je vous dis combien cela va coûter. Les champs avec * sont obligatoires.`},
+'qf.l.you':{en:`About you`,fr:`Vous`},
+'qf.name':{en:`Full name`,fr:`Nom complet`},
+'qf.name.ph':{en:`Example: Marie Ngono`,fr:`Exemple : Marie Ngono`},
+'qf.phone':{en:`Phone or WhatsApp`,fr:`Téléphone ou WhatsApp`},
+'qf.phone.ph':{en:`+237 6XX XX XX XX`,fr:`+237 6XX XX XX XX`},
+'qf.email':{en:`Email`,fr:`E-mail`},
+'qf.opt':{en:`(optional)`,fr:`(facultatif)`},
+'qf.email.ph':{en:`you@example.com`,fr:`vous@exemple.com`},
+'qf.city':{en:`City and country`,fr:`Ville et pays`},
+'qf.city.ph':{en:`Example: Douala, Cameroon`,fr:`Exemple : Douala, Cameroun`},
+'qf.l.type':{en:`What do you need?`,fr:`De quoi avez-vous besoin ?`},
+'qf.t.cv':{en:`ATS CV and LinkedIn`,fr:`CV ATS et LinkedIn`},
+'qf.t.port':{en:`Portfolio`,fr:`Portfolio`},
+'qf.t.site':{en:`Showcase website`,fr:`Site vitrine`},
+'qf.t.shop':{en:`Online shop (sell products)`,fr:`Boutique en ligne (vendre des produits)`},
+'qf.t.resto':{en:`Restaurant website`,fr:`Site de restaurant`},
+'qf.t.free':{en:`Freelancer online presence`,fr:`Présence en ligne freelance`},
+'qf.t.other':{en:`Something else`,fr:`Autre chose`},
+'qf.l.proj':{en:`Your project`,fr:`Votre projet`},
+'qf.act':{en:`What do you do?`,fr:`Que faites-vous ?`},
+'qf.act.ph':{en:`Your activity, your business or your studies`,fr:`Votre activité, votre business ou vos études`},
+'qf.msg':{en:`What do you want me to create, and what do you expect from me?`,fr:`Que voulez-vous que je crée, et qu'attendez-vous de moi ?`},
+'qf.msg.ph':{en:`Describe your idea, the pages you want, examples you like, anything that helps.`,fr:`Décrivez votre idée, les pages souhaitées, des exemples que vous aimez, tout ce qui peut aider.`},
+'qf.budget':{en:`Your budget`,fr:`Votre budget`},
+'qf.b.0':{en:`I don't know yet, I want a quote`,fr:`Je ne sais pas encore, je veux un devis`},
+'qf.b.1':{en:`Small budget`,fr:`Petit budget`},
+'qf.b.2':{en:`Medium budget`,fr:`Budget moyen`},
+'qf.b.3':{en:`Larger budget`,fr:`Budget plus important`},
+'qf.when':{en:`When do you need it?`,fr:`Pour quand ?`},
+'qf.w.0':{en:`No specific date`,fr:`Pas de date précise`},
+'qf.w.1':{en:`As soon as possible`,fr:`Dès que possible`},
+'qf.w.2':{en:`Within a month`,fr:`Dans le mois`},
+'qf.w.3':{en:`No rush`,fr:`Pas pressé`},
+'qf.have':{en:`What you already have`,fr:`Ce que vous avez déjà`},
+'qf.h.logo':{en:`Logo`,fr:`Logo`},
+'qf.h.photos':{en:`Photos`,fr:`Photos`},
+'qf.h.texts':{en:`Texts`,fr:`Textes`},
+'qf.h.domain':{en:`Domain name`,fr:`Nom de domaine`},
+'qf.send.wa':{en:`Send on WhatsApp`,fr:`Envoyer sur WhatsApp`},
+'qf.send.mail':{en:`Send by email`,fr:`Envoyer par e-mail`},
+'qf.note':{en:`Your request opens in WhatsApp or in your email app, ready to send. Nothing is saved on this site.`,fr:`Votre demande s'ouvre dans WhatsApp ou dans votre messagerie, prête à être envoyée. Rien n'est enregistré sur ce site.`},
+'qf.ok.wa':{en:`Your request is ready in WhatsApp. Press send there and I will reply with a price.`,fr:`Votre demande est prête dans WhatsApp. Appuyez sur envoyer et je vous réponds avec un prix.`},
+'qf.ok.mail':{en:`Your request is ready in your email app. Press send there and I will reply with a price.`,fr:`Votre demande est prête dans votre messagerie. Appuyez sur envoyer et je vous réponds avec un prix.`},
+'qf.e.name':{en:`Please enter your name.`,fr:`Merci d'indiquer votre nom.`},
+'qf.e.phone':{en:`Please enter a phone number with at least 8 digits.`,fr:`Merci d'indiquer un numéro d'au moins 8 chiffres.`},
+'qf.e.email':{en:`This email looks incomplete. Check it or leave it empty.`,fr:`Cet e-mail semble incomplet. Vérifiez-le ou laissez-le vide.`},
+'qf.e.type':{en:`Please choose what you need.`,fr:`Merci de choisir ce dont vous avez besoin.`},
+'qf.e.act':{en:`Please tell me what you do.`,fr:`Merci de me dire ce que vous faites.`},
+'qf.e.msg':{en:`Please describe what you want, in a few words at least.`,fr:`Merci de décrire ce que vous voulez, en quelques mots au moins.`},
+'qf.mtitle':{en:`New quote request`,fr:`Nouvelle demande de devis`},
+'qf.subject':{en:`Quote request from`,fr:`Demande de devis de`},
+'qf.cta':{en:`Request a quote`,fr:`Demander un devis`},
+'rj.quote':{en:`Quote`,fr:`Devis`},
+'pn.quote':{en:`Quote`,fr:`Devis`},
 'pn.ct':{en:`Contact`,fr:`Contact`}
 };
 const WA_TEXT={
@@ -2271,6 +2472,7 @@ const WA_TEXT={
   fr:`Bonjour Aliou, je voudrais me renseigner sur un service (CV, portfolio ou site web).`
 };
 const WA_TEXTS={
+  budget:{en:`Hello Aliou, I have a small business and I would like to know your prices.`,fr:`Bonjour Aliou, j'ai un petit business et je voudrais connaître vos prix.`},
   cv:{en:`Hello Aliou, I would like an ATS CV and a LinkedIn profile.`,fr:`Bonjour Aliou, je voudrais un CV ATS et un profil LinkedIn.`},
   port:{en:`Hello Aliou, I would like a personal portfolio.`,fr:`Bonjour Aliou, je voudrais un portfolio personnel.`},
   shop:{en:`Hello Aliou, I would like a website for my shop or restaurant.`,fr:`Bonjour Aliou, je voudrais un site web pour ma boutique ou mon restaurant.`},
@@ -2306,6 +2508,7 @@ function setLang(l){
       const e=I18N[el.getAttribute('data-i18n')];
       if(e&&e[l]!=null) el.innerHTML=e[l];
     });
+    $$('[data-i18n-ph]').forEach(function(el){ const e=I18N[el.getAttribute('data-i18n-ph')]; if(e&&e[l]) el.placeholder=e[l]; });
     $$('[data-wa]').forEach(function(a){ const k=a.getAttribute('data-wa-k'); const tx=(k&&WA_TEXTS[k]&&WA_TEXTS[k][l])||WA_TEXT[l]; a.href='https://wa.me/237698828298?text='+encodeURIComponent(tx); });
     $$('[data-mail]').forEach(function(a){ a.href='mailto:aliougargaaboubikr@gmail.com?subject='+encodeURIComponent(MAIL_SUBJ[l]); });
     document.documentElement.lang=l;
@@ -2810,7 +3013,7 @@ setup:{q:{en:`Is he equipped to work remotely?`,fr:`Est-il équipé pour le tél
 certs:{q:{en:`Does he have certifications?`,fr:`A-t-il des certifications ?`},
   a:{en:`Yes. Job simulations from Goldman Sachs (Operations), KPMG (Audit and Assurance) and Mastercard (Advisors and Consulting) on Forage. Anthropic courses: Claude AI Fluency, Claude 101, Claude Code 101 and Agent Skills. And ClickUp Novice.`,fr:`Oui. Des simulations de poste Goldman Sachs (Operations), KPMG (Audit et Assurance) et Mastercard (Advisors et Consulting) sur Forage. Des cours Anthropic : Claude AI Fluency, Claude 101, Claude Code 101 et Agent Skills. Et ClickUp Novice.`}},
 services:{q:{en:`Can he make me a CV or a website?`,fr:`Peut-il me faire un CV ou un site web ?`},
-  a:{en:`Yes. ATS CV and LinkedIn profile on CvatsPro.com, portfolios for students and job seekers, and websites for shops, restaurants and freelancers. Message him on WhatsApp to start.`,fr:`Oui. CV ATS et profil LinkedIn sur CvatsPro.com, portfolios pour étudiants et chercheurs d'emploi, et sites web pour boutiques, restaurants et freelances. Écrivez-lui sur WhatsApp pour commencer.`},acts:['wa','cvp']},
+  a:{en:`Yes. ATS CV and LinkedIn profile on CvatsPro.com, portfolios for students and job seekers, and websites for shops, restaurants and freelancers. Prices are very affordable and adapted to small budgets: small sellers and small businesses are welcome. Message him on WhatsApp to start.`,fr:`Oui. CV ATS et profil LinkedIn sur CvatsPro.com, portfolios pour étudiants et chercheurs d'emploi, et sites web pour boutiques, restaurants et freelances. Les prix sont très abordables et adaptés aux petits budgets : petits vendeurs et petites entreprises sont les bienvenus. Écrivez-lui sur WhatsApp pour commencer.`},acts:['wa','cvp']},
 cvp:{q:{en:`What is CvatsPro?`,fr:`Qu'est-ce que CvatsPro ?`},
   a:{en:`CvatsPro.com is an AI-powered platform founded by Aliou. It writes professional, ATS-optimized resumes and cover letters in English and French, and delivers them instantly. There is also a free AI ATS score check.`,fr:`CvatsPro.com est une plateforme propulsée par l'IA, fondée par Aliou. Elle rédige des CV et lettres de motivation professionnels et optimisés ATS, en anglais et en français, livrés instantanément. Il y a aussi une vérification gratuite du score ATS.`},acts:['cvp']},
 where:{q:{en:`Where is he based?`,fr:`Où est-il basé ?`},
@@ -2944,7 +3147,7 @@ const AL=window.AL; if(!AL) return;
 const $=AL.$, $$=AL.$$;
 const COLORS=['#FF7A1A','#FFB020','#FF4D6D','#14B8A6'];
 const JOURNEY={
-  client:[['#c-pres','rj.pres'],['#c-serv','rj.serv'],['#c-how','rj.how'],['#c-work','rj.work'],['#c-case','rj.case'],['#c-room','rj.room'],['#c-cta','rj.cta']],
+  client:[['#c-pres','rj.pres'],['#c-serv','rj.serv'],['#c-how','rj.how'],['#c-work','rj.work'],['#c-case','rj.case'],['#c-room','rj.room'],['#c-quote','rj.quote'],['#c-cta','rj.cta']],
   recruiter:[['#r-pres','rj.pres'],['#r-skills','rj.skills'],['#r-exp','rj.exp'],['#r-room','rj.room'],['#r-edu','rj.edu'],['#r-cta','rj.cta']],
   full:[['#f-home','rj.pres'],['#f-about','rj.sum'],['#f-exp','rj.exp'],['#f-skills','rj.skills'],['#f-work','rj.work'],['#f-web','rj.web'],['#f-certs','rj.certs'],['#f-gallery','rj.gal'],['#f-contact','rj.cta']]
 };
@@ -3067,6 +3270,46 @@ document.addEventListener('click',function(e){
   const done=function(){ s.textContent=label('b.copied'); setTimeout(function(){ s.textContent=old; },1800); };
   if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done,done); else done();
 });
+
+/* bottom menu: one per page, scrollable with the finger, follows the section on screen */
+(function(){
+  const nav=document.getElementById('pillnav'); if(!nav) return;
+  const MENUS={
+    client:[['c-pres','i-home','pn.home'],['c-serv','i-shop','pn.serv'],['c-how','i-clip','pn.how'],['c-work','i-grid','pn.work'],['c-case','i-doc','pn.case'],['c-room','i-chip','pn.room'],['c-quote','i-doc','pn.quote'],['c-cta','i-chat','pn.ct']],
+    recruiter:[['r-pres','i-home','pn.home'],['r-skills','i-spark','pn.sk'],['r-exp','i-brief','pn.exp'],['r-room','i-chip','pn.room'],['r-edu','i-cap','pn.cert'],['r-cta','i-chat','pn.ct']],
+    full:[['f-home','i-home','pn.home'],['f-about','i-doc','pn.sum'],['f-exp','i-brief','pn.exp'],['f-skills','i-spark','pn.sk'],['f-work','i-grid','pn.work'],['f-certs','i-cap','pn.cert'],['f-gallery','i-user','pn.gal'],['f-contact','i-chat','pn.ct']]
+  };
+  let io=null, links=[];
+  function setActive(a){
+    links.forEach(function(l){ l.classList.toggle('active',l===a); });
+    if(a){ const left=a.offsetLeft-(nav.clientWidth-a.offsetWidth)/2; nav.scrollTo({left:Math.max(0,left),behavior:AL.reduced?'auto':'smooth'}); }
+  }
+  function build(view){
+    if(io){ io.disconnect(); io=null; }
+    nav.innerHTML=''; links=[];
+    const defs=MENUS[view]; if(!defs) return;
+    defs.forEach(function(d){
+      const sec=document.getElementById(d[0]); if(!sec) return;
+      const a=document.createElement('a'); a.href='#'+d[0];
+      a.innerHTML='<svg class="ic"><use href="#'+d[1]+'"/></svg><span data-i18n="'+d[2]+'">'+label(d[2])+'</span>';
+      a.addEventListener('click',function(ev){
+        ev.preventDefault();
+        if(window.__lenis) window.__lenis.scrollTo(sec,{offset:-80}); else sec.scrollIntoView({behavior:AL.reduced?'auto':'smooth',block:'start'});
+        setActive(a);
+      });
+      a._sec=sec; nav.appendChild(a); links.push(a);
+    });
+    nav.scrollLeft=0; setActive(links[0]);
+    try{
+      io=new IntersectionObserver(function(es){
+        es.forEach(function(en){ if(!en.isIntersecting) return; const a=links.find(function(l){ return l._sec===en.target; }); if(a) setActive(a); });
+      },{rootMargin:'-40% 0px -55% 0px'});
+      links.forEach(function(l){ io.observe(l._sec); });
+    }catch(x){}
+  }
+  document.addEventListener('al:view',function(ev){ build(ev.detail); });
+  document.addEventListener('al:lang',function(){ links.forEach(function(a){ const sp=a.querySelector('span'); sp.textContent=label(sp.getAttribute('data-i18n')); }); });
+})();
 })();
 
 (function(){
@@ -3187,6 +3430,83 @@ document.addEventListener('al:lang',function(){
   });
   if(!IO_MODE) req();
 });
+})();
+
+(function(){
+'use strict';
+const AL=window.AL, f=document.getElementById('qform');
+if(!AL||!f) return;
+const L=function(k){ const e=I18N[k]; return e?(e[AL.getLang()]||e.en):k; };
+const val=function(id){ const el=f.querySelector('#'+id); return el?el.value.trim():''; };
+let sender='wa';
+f.querySelectorAll('[data-send]').forEach(function(b){ b.addEventListener('click',function(){ sender=b.getAttribute('data-send'); }); });
+
+const RULES={
+  'qf-name':function(){ return val('qf-name').length>=2?'':'qf.e.name'; },
+  'qf-phone':function(){ return val('qf-phone').replace(/\D/g,'').length>=8?'':'qf.e.phone'; },
+  'qf-email':function(){ const v=val('qf-email'); return (!v||/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))?'':'qf.e.email'; },
+  'qf-type':function(){ return f.querySelector('input[name="type"]:checked')?'':'qf.e.type'; },
+  'qf-act':function(){ return val('qf-act').length>=3?'':'qf.e.act'; },
+  'qf-msg':function(){ return val('qf-msg').length>=10?'':'qf.e.msg'; }
+};
+function show(id,key){
+  const e=f.querySelector('#'+id+'-e'); if(e) e.textContent=key?L(key):'';
+  const inp=f.querySelector('#'+id); if(inp) inp.setAttribute('aria-invalid',key?'true':'false');
+}
+function check(id){ const k=RULES[id](); show(id,k); return !k; }
+['qf-name','qf-phone','qf-email','qf-act','qf-msg'].forEach(function(id){
+  const el=f.querySelector('#'+id); if(!el) return;
+  el.addEventListener('blur',function(){ if(el.value.trim()) check(id); });
+  el.addEventListener('input',function(){ if(el.getAttribute('aria-invalid')==='true') check(id); });
+});
+f.querySelectorAll('input[name="type"]').forEach(function(r){ r.addEventListener('change',function(){ show('qf-type',''); }); });
+
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(e.submitter&&e.submitter.getAttribute('data-send')) sender=e.submitter.getAttribute('data-send');
+  let first=null;
+  Object.keys(RULES).forEach(function(id){ if(!check(id)&&!first) first=id; });
+  if(first){
+    const el=first==='qf-type'?f.querySelector('input[name="type"]'):f.querySelector('#'+first);
+    if(el){ el.focus({preventScroll:true}); el.closest('.qf-f,fieldset').scrollIntoView({behavior:AL.reduced?'auto':'smooth',block:'center'}); }
+    return;
+  }
+  const type=f.querySelector('input[name="type"]:checked');
+  const have=Array.prototype.slice.call(f.querySelectorAll('input[name="have"]:checked')).map(function(c){ return L(c.getAttribute('data-k')); });
+  const sel=function(id){ const s=f.querySelector('#'+id); const o=s&&s.options[s.selectedIndex]; return o?o.textContent.trim():''; };
+  const lines=[
+    L('qf.mtitle'),'',
+    L('qf.name')+' : '+val('qf-name'),
+    L('qf.phone')+' : '+val('qf-phone'),
+    val('qf-email')?L('qf.email')+' : '+val('qf-email'):null,
+    val('qf-city')?L('qf.city')+' : '+val('qf-city'):null,
+    L('qf.l.type')+' '+L(type.getAttribute('data-k')),
+    '',L('qf.act'),val('qf-act'),
+    '',L('qf.msg'),val('qf-msg'),'',
+    L('qf.budget')+' : '+sel('qf-budget'),
+    L('qf.when')+' '+sel('qf-when'),
+    have.length?L('qf.have')+' : '+have.join(', '):null
+  ].filter(function(x){ return x!==null; });
+  const text=lines.join('\n');
+  const ok=f.querySelector('#qf-ok');
+  if(sender==='mail'){
+    window.location.href='mailto:aliougargaaboubikr@gmail.com?subject='+encodeURIComponent(L('qf.subject')+' '+val('qf-name'))+'&body='+encodeURIComponent(text);
+    ok.textContent=L('qf.ok.mail');
+  } else {
+    window.open('https://wa.me/237698828298?text='+encodeURIComponent(text),'_blank','noopener');
+    ok.textContent=L('qf.ok.wa');
+  }
+});
+
+/* links that lead to the form (cover button, "ask for a price" banner in the client space) */
+document.addEventListener('click',function(e){
+  const a=e.target.closest&&e.target.closest('[data-goquote], #v-client .budget .btn'); if(!a) return;
+  e.preventDefault();
+  const sec=document.getElementById('c-quote'); if(!sec) return;
+  if(window.__lenis) window.__lenis.scrollTo(sec,{offset:-80}); else sec.scrollIntoView({behavior:AL.reduced?'auto':'smooth',block:'start'});
+  setTimeout(function(){ const n=f.querySelector('#qf-name'); if(n) n.focus({preventScroll:true}); },AL.reduced?0:700);
+});
+document.addEventListener('al:lang',function(){ Object.keys(RULES).forEach(function(id){ const inp=id==='qf-type'?null:f.querySelector('#'+id); if(inp&&inp.getAttribute('aria-invalid')==='true') check(id); }); });
 })();
 
 window.__alOK=true;document.documentElement.classList.add('js');
